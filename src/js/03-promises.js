@@ -20,12 +20,14 @@ function onCreateBtnClick(e) {
         Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`, {
           position: 'right-top',
           clickToClose: true,
+          timeout: 3000,
         });
       })
       .catch(({ position, delay }) => {
         Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`, {
           position: 'right-top',
           clickToClose: true,
+          timeout: 3000,
         });
       });
   }
