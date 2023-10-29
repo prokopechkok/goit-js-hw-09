@@ -4,6 +4,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const refs = {
   startBtn: document.querySelector('[data-start]'),
+  datetimeInput: document.querySelector('#datetime-picker'),
   daysSpan: document.querySelector('[data-days]'),
   hoursSpan: document.querySelector('[data-hours]'),
   minutesSpan: document.querySelector('[data-minutes]'),
@@ -37,6 +38,7 @@ flatpickr('#datetime-picker', options);
 
 function onStartBtnClick() {
   refs.startBtn.setAttribute('disabled', 'true');
+  refs.datetimeInput.setAttribute('disabled', 'true');
 
   const intervalId = setInterval(() => {
     const currentDate = new Date();
@@ -54,6 +56,7 @@ function onStartBtnClick() {
       !timeLeftObj.seconds
     ) {
       clearInterval(intervalId);
+      refs.datetimeInput.removeAttribute('disabled');
     }
   }, 1000);
 }

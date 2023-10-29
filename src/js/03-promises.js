@@ -13,9 +13,10 @@ function onCreateBtnClick(e) {
   const step = Number(refs.form.elements.step.value);
   const amount = Number(refs.form.elements.amount.value);
 
+  refs.form.reset();
+
   for (let i = 0; i < amount; i++) {
-    const promise = createPromise(i + 1, firstDelay + step * i);
-    promise
+    createPromise(i + 1, firstDelay + step * i)
       .then(({ position, delay }) => {
         Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`, {
           position: 'right-top',
